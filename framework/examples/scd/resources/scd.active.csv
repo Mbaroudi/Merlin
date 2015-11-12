@@ -1,0 +1,4 @@
+1|historical dim|leave as it is|20100101|20140101
+1|active dim|move to core as it is|20140101|99991231
+2|updated dim|should be closed|20140101|99991231
+4|removed dim|should be closed|20140101|99991231
