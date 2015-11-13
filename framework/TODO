@@ -1,0 +1,13 @@
+1. Flow Routing:
+    - flow orchestration
+    - conditional job execution
+    - error handling
+    - interfaces to monitor the executions, etc.
+2. Flow Scheduler:
+    - time-based scheduling
+    - real-time scheduling based on external, unpredictable events
+    - automatic restart and recovery in event of failures
+3. Docker container:
+    - use docker container to package and ship frameworks
+    - use docker containers to deploy and run job flows
+4. Vagrant configurations to simplify flow development and testing

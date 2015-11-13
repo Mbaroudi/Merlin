@@ -1,0 +1,13 @@
+du
+Usage: hadoop fs -du URI [URI …]
+
+Displays aggregate length of files contained in the directory or the length of a file in case its just a file.
+Example:
+hadoop fs -du /user/hadoop/dir1 /user/hadoop/file1 hdfs://nn.example.com/user/hadoop/dir1
+Exit Code:
+Returns 0 on success and -1 on error.
+
+dus
+Usage: hadoop fs -dus <args>
+
+Displays a summary of file lengths.

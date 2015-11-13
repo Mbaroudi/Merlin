@@ -1,0 +1,17 @@
+DEPRECATED: Use of this script to execute mapred command is deprecated.
+Instead use the mapred command for it.
+
+14/10/20 12:04:25 INFO client.RMProxy: Connecting to ResourceManager at vm-cluster-node1/10.211.55.100:8032
+
+Job: job_1412153770896_0099
+Job File: /user/vagrant/.staging/job_1412153770896_0099/job.xml
+Job Tracking URL : http://vm-cluster-node1:8088/proxy/application_1412153770896_0099/
+Uber job : false
+Number of maps: 0
+Number of reduces: 0
+map() completion: 0.0
+reduce() completion: 0.0
+Job state: PREP
+retired: false
+reason for failure:
+Counters: 0
