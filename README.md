@@ -401,9 +401,3 @@ Merlin provides methods to easily interact with the local file system, HDFS and 
 | -                    | copy_to_hdfs      | -                            | Copies file from local filesystem to HDFS                                                                     |
 | distcp               | -                 | -                            | Copies files between HDFS clusters                                                                            |
 | -                    | -                 | upload                       | Uploads file to FTP server                                                                                    |
-
-
-=======
-# Merlin
-Standardized Big Data ETL framework
->>>>>>> origin/master
