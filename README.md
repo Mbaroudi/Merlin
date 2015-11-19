@@ -18,17 +18,9 @@ Also you can install Merlin in virtualenv to avoid misconceptions with python's 
 
         source ve/bin/activate
 
-CentOS 6 still come with Python 2.6 and several critical system utilities, for example yum, will break if the default Python interpreter is upgraded.
-The trick is to install new versions of Python in /usr/local.
-Below a link to installation Python2.7 on CentOS6
-
-https://git.epam.com/epmc-bdcc/hadoop-framework/wikis/PythonOnCentos6
-
-
 You can install Merlin by downloading the source and using the setup.py script as follows:
 
-
-        git clone https://git.epam.com/epmc-bdcc/hadoop-framework.git
+        git clone https://github.com/epam/Merlin/
 
         cd hadoop-framework
 
@@ -38,7 +30,7 @@ This setup call installs all of the necessary python dependencies.
 
 
 # Running tests
-Merlin comes with a comprehensive suite for unit and integration tests. All check-ins are automatically tested on [CI Server](http://evhubudsd1b86:8111/overview.html)
+Merlin comes with a comprehensive suite for unit and integration tests.
 
 To run through the whole suite for tests, run
 
@@ -72,7 +64,7 @@ Besides it also includes some nice features though:
 
 ## Examples:
 
-A more extensive examples can be found in unit / integration tests, tool module documentation, and [examples sub-module](https://git.epam.com/epmc-bdcc/hadoop-framework/tree/develop/framework/examples).
+A more extensive examples can be found in unit / integration tests, tool module documentation, and [examples sub-module](https://github.com/epam/Merlin/hadoop-framework/tree/develop/framework/examples).
 
 ### MapReduce
 
