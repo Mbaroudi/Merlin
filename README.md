@@ -1,5 +1,5 @@
 # Purpose
-Merlin is a Python framework to simplify Hadoop jobs workflow development and management. The framework is integrated with the BigData technology stack and supports Hadoop jobs for Apache MapReduce, Streaming map-reduce, Apache Pig, Apache Hive, Apache Sqoop, Spark and offers commonly used functionality for development of Extract-Transform-Load (ETL) processes.
+Merlin is a Python framework to simplify Hadoop jobs workflow development and management. The framework is integrated with the Big Data technology stack and supports Hadoop jobs for Apache MapReduce, Streaming map-reduce, Apache Pig, Apache Hive, Apache Sqoop, Spark and offers commonly used functionality for development of Extract-Transform-Load (ETL) processes.
 
 # Features
 
