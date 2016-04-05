@@ -697,7 +697,10 @@ class FTPConnector(object):
         :rtype FileDescriptor
         """
         res = None
-        date = datetime.strptime(self.__ftp_driver.sendcmd('MDTM ' + path)[4:],
+        mdtm_string = self.__ftp_driver.sendcmd('MDTM ' + path)
+        datetime_str = mdtm_string[4:] #skip erorr code
+        datetime_str = datetime_str[14:] #skipp all last characters like milliseconds. 14 digits - YYYYmmddHHmmss
+        date = datetime.strptime(datetime_str,
                                  "%Y%m%d%H%M%S") if not self.is_directory(path) else None
         for obj_stat in list_status:
             obj_stat = re.split("[ ]+", obj_stat)
