@@ -42,7 +42,7 @@ Creates and returns FTPClient with SFTPConnector:
 
 Creates and returns FTPClient with FTPConnector:
     ftp = ftp_client(host='localhost', path='/tmp/folder/file', login='user',
-                     password='$$$$', port=21)
+                     password='$$$$', port=21, passive=True)
 
 Creates and returns FTPClient with FTPSConnector:
     ftp = ftp_client(host='localhost', path='/tmp/folder/file', login='user',
@@ -141,7 +141,7 @@ def sftp_client(host, path=None, login=None, password=None, hkey_path=None):
     return get_ftp_client(path, SFTPConnector.get_session_sftp(host, login, password, hkey_path))
 
 
-def ftp_client(host, path=None, login=None, password=None, port=None):
+def ftp_client(host, path=None, login=None, password=None, port=None, passive=True):
     """
     Creates and returns FTPClient with path to file and FTP connection
     :param host: host of FTP server
@@ -149,6 +149,7 @@ def ftp_client(host, path=None, login=None, password=None, port=None):
     :param login: user's name
     :param password: password for user
     :param port: port of FTP server
+    :param passive: enable passive mode of FTP server if True (default), or switch to Active mode if False
     :return: FTPClient with FTP connection
     :type host: str
     :type path: str
@@ -160,7 +161,7 @@ def ftp_client(host, path=None, login=None, password=None, port=None):
 
     return get_ftp_client(path,
                           FTPConnector.
-                          get_session_ftp(host, login, password, port))
+                          get_session_ftp(host, login, password, port, passive))
 
 
 def ftps_client(path, host, login=None, password=None, port=21, auth=False, protocol=True):
@@ -357,16 +358,18 @@ class FTPConnector(object):
     """
 
     @staticmethod
-    def get_session_ftp(host, login=None, password=None, port=None):
+    def get_session_ftp(host, login=None, password=None, port=None, passive=True):
         """
         :param host:
         :param login:
         :param password:
+        :param passive: enable passive mode of FTP server if True (default), or switch to Active mode if False
         :raise: error_perm
         :return:
         """
         ftp = FTP()
         try:
+            ftp.set_pasv(passive)
             ftp.connect(host, port)
             ftp.login(login, password)
             return FTPConnector(ftp)
