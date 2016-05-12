@@ -122,7 +122,7 @@ from merlin.common.exceptions import FileNotFoundException, FTPFileError, FTPCon
 from merlin.fs.localfs import LocalFS
 
 
-def sftp_client(host, path=None, login=None, password=None, hkey_path=None):
+def sftp_client(host, path=None, login=None, password=None, hkey_path=None, port=22):
     """
     Creates and returns FTPClient with path to file and SFTP connection
     :param host: host of SFTP server
@@ -138,7 +138,7 @@ def sftp_client(host, path=None, login=None, password=None, hkey_path=None):
     :type hkey_path: str
     :rtype: FTPClient
     """
-    return get_ftp_client(path, SFTPConnector.get_session_sftp(host, login, password, hkey_path))
+    return get_ftp_client(path, SFTPConnector.get_session_sftp(host, login, password, hkey_path, port))
 
 
 def ftp_client(host, path=None, login=None, password=None, port=None, passive=True):
@@ -766,7 +766,7 @@ class SFTPConnector(object):
     """
 
     @staticmethod
-    def get_session_sftp(host, login=None, password=None, hkey_path=None):
+    def get_session_sftp(host, login=None, password=None, hkey_path=None, port=22):
         """
         Creates connection with SFTP server
         :param host: host of SFTP server
@@ -781,9 +781,12 @@ class SFTPConnector(object):
         :rtype: SFTPConnector
         """
         import paramiko
+        import paramiko.client
+
         ssh_client = paramiko.SSHClient()
         ssh_client.load_system_host_keys(filename=hkey_path)
-        ssh_client.connect(hostname=host, username=login, password=password)
+        ssh_client.set_missing_host_key_policy(paramiko.client.WarningPolicy()) 
+        ssh_client.connect(hostname=host, port=port, username=login, password=password)
         sftp = paramiko.SFTPClient.from_transport(ssh_client.get_transport())
 
         return SFTPConnector(sftp, ssh_client)
