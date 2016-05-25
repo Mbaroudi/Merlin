@@ -842,7 +842,7 @@ class SFTPConnector(object):
         """
         if self.exists(path):
             raise FTPFileError(
-                "'{path}' is exists".format(path)
+                "'{path}' is exists".format(path=path)
             )
 
     def __assert_exists(self, path):
@@ -854,7 +854,7 @@ class SFTPConnector(object):
         """
         if not self.exists(path):
             raise FileNotFoundException(
-                "'{path}' is not exists".format(path)
+                "'{path}' is not exists".format(path=path)
             )
 
     def exists(self, path):
